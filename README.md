@@ -32,7 +32,7 @@ Given a zipped folder containing all unpreprocessed word images, the output is a
 
 ## Step 4: Training the model (DCNNs + Bidirectional LSTMs with CTC Loss)
 ### 1) Deep Convolutional Neural Networks (DCNNs):
-#### Introduction:
+### Introduction:
 In classical computer vision techniques, an image is convolved with a number of high-frequency (e.g. Sobel Filters) and low-frequency (e.g. Gaussian Blur Filter) to extract useful information (features) about the objects in an image such as edges and corners. These filters (kernels) have matrices of well-known properties and values. The convolution output is a new image which is called a "feature map" that highlights edges and corners of a targeted object and discards other irrelevant information. Below is an the feature map of an image after applying the Sobel Edge detector:
 
 ![edge_detection_sobel](https://user-images.githubusercontent.com/47701869/173190755-6be335b5-6e25-4a02-915e-972200beaf47.png)
@@ -44,7 +44,14 @@ Also, with deep learning, we can treat feature maps as new images to find even m
 
 Both approaches are used in the literature of handwritten OCR to extract the features of the words and characters in a dataset. For example, [this](https://www.researchgate.net/publication/325804874_Recognition_of_Handwritten_Arabic_Characters_using_Histograms_of_Oriented_Gradient_HOG) is a paper using HOG (Histogram of Oriented Gradients) which is a classical learning free technique to extract the features of Arabic characters. Another example is [this paper](https://www.inderscienceonline.com/doi/abs/10.1504/IJISTA.2016.080103), which uses CNNs to extract the features of the characters. You can notice that both papers use an SVM (support Vector Machines) classifier for the transcription step, which means that the transcription phase is learnable in both papers but feature extraction can be learning-free.
 
-#### Architecture Used:
+### Architecture Used in this project:
+Batch size is set to 64 images per batch and each image is 64 pixels wide and 32 pixels tall.
+Each batch passes through two CNN layers for feature extraction.
+
+The first CNN layer consists of 32 kernels of size (3,3) and a Max pooling layer of size (2,2). The output is 32 feature maps with dimensions 32 pixels wide by 16 pixels tall. The feature maps are then passed to a ReLu activation function and a batch normalization layer.
+
+The second CNN layer consists of 64 kernels of size (3,3) and a Max pooling layer of size (2,2). The output is 64 feature maps with dimensions 16 pixels wide by 8 pixels tall. The feature maps are then passed to a ReLu activation function and a batch normalization layer.
+
 
 ### 2) Birdirectional Long-Short Term Memory Recurrent Neural Networks (Bi-LSTM RNNs):
 
