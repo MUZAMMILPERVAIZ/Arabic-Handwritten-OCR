@@ -19,6 +19,7 @@ Or we receive a subword (an image of a partial word) if the word consists of a g
 
 ![disconnedted_letter1](https://user-images.githubusercontent.com/47701869/173183383-387d5526-3a43-4966-b06d-a204f2a19c8b.jpg)
 
+
 ![disconnected_letter_2](https://user-images.githubusercontent.com/47701869/173183403-67607619-9041-4d22-9d2c-5eb4c21b2d67.jpg)
 
 The reason why it is favorable to perform this double segmentation step is that out of a limited dataset we can receive a substantial amount of samples to train on.
@@ -68,6 +69,12 @@ For sequence based detection problems, the normal feed-forward neural network fa
 Recurrent Neural Networks (RNNs) provide pathways of dependence between the current data entries and the the entries prior to and after it. The diagram below shows  the main difference between an RNN and a normal feed-forward network: The output of neuron is fed back to it as an input.
 
 ![rnn-vs-fnn](https://user-images.githubusercontent.com/47701869/173206432-31e8b824-d2e9-4bdd-a567-c03fe2b38e6e.png)
+
+To understand how RNNs are trained, we must look at the simplified diagram of an RNN. This simplified diagram unrolls the dependencies of the RNN so that we can visualize the partial derivatives we need in order to backpropagate the error. This simplified diagram is shown below. It is clear that an RNN can be considered as a series of feed-forward networks that are cascaded together.
+
+![unrolled-rnn_0](https://user-images.githubusercontent.com/47701869/173207267-59b04b47-9979-4253-947a-a8a08391fd0c.png)
+
+RNNs are particularly prone to exploding/vanishing gradients, due to the fact that unrolling the network to perform Back Propagation Through Time (BPTT) means that many partial derivatives are multiplied together which increases the probability of vanishing gradients especially with saturating activation functions.
 
 ![image](https://user-images.githubusercontent.com/47701869/173202092-8918b188-87f6-4c49-b321-06aaae3edfcc.png)
 
