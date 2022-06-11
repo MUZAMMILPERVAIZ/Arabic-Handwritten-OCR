@@ -25,7 +25,9 @@ The reason why it is favorable to perform this double segmentation step is that 
 However, the [KHATT dataset](http://khatt.ideas2serve.net/index.php) does not provide a ground truth on word and subword levels. For this project we have labeled a total of 5160 images found in the dataset folder.
 
 ## Step 3: Word images preprocessing
-In this step, we have to make sure that all images have the same size. We first take the word image, crop any un-needed black space vertically and horizontally, then use tensorflow to resize the word image (without distortion) to be 64 pixels in width and 32 pixels in height. If distortionless resizing is not possible without padding, we check and add the required padding to the image.
-
-An additional pre-processing step would be to skeletonize the word to get a sharper and thinner outline of the letters. This is required in order to emphasize the morphological similarity of the letters despite the differences in handwriting.
+Given a zipped folder containing all unpreprocessed word images, the output is a zipped folder containing preprocessed word images. The preoprocessing is described below:
+1) We first take the word image, crop any un-needed black space vertically and horizontally
+2) We then resize the word image (without distortion) to be 64 pixels in width and 32 pixels in height. If distortionless resizing is not possible without padding, we check and add the required padding to the image.
+3) An additional pre-processing step would be to skeletonize the word to get a sharper and thinner outline of the letters. This is required in order to emphasize the morphological similarity of the letters despite the differences in handwriting.
+4) 
 ## Step 4: Training the model (DCNNs + Bidirectional LSTMs with CTC Loss)
