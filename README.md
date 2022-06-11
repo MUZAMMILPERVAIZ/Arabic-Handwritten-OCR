@@ -61,7 +61,13 @@ A regularization technique is used by adding a Dropout layer after the fully con
 ### 2) Birdirectional Long-Short Term Memory Recurrent Neural Networks (Bi-LSTM RNNs):
 
 ### Introduction:
-Any sequence based data has the property that current data entries depend on the data entries prior to them in time, space or any other measured dimension. In some special cases, the current data entries also depend on the upcoming entries in the sequence. For sequence based detection problems, the normal feed-forward neural network fails to capture the backward and forward dependencies of the data entries, because they focus on the current data entry only. Therefore, feed-forward NNs perform poorly in such problems.
+Any sequence based data has the property that current data entries depend on the data entries prior to them in time, space or any other measured dimension. In some special cases, the current data entries also depend on the upcoming entries in the sequence. 
+
+For sequence based detection problems, the normal feed-forward neural network fails to capture the backward and forward dependencies of the data entries, because they focus on the current data entry only. Therefore, feed-forward NNs perform poorly in such problems.
+
+Recurrent Neural Networks (RNNs) provide pathways of dependence between the current data entries and the the entries prior to and after it. The diagram below shows  the main difference between an RNN and a normal feed-forward network: The output of neuron is fed back to it as an input.
+
+![rnn-vs-fnn](https://user-images.githubusercontent.com/47701869/173206432-31e8b824-d2e9-4bdd-a567-c03fe2b38e6e.png)
 
 ![image](https://user-images.githubusercontent.com/47701869/173202092-8918b188-87f6-4c49-b321-06aaae3edfcc.png)
 
