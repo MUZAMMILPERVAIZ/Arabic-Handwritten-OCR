@@ -52,6 +52,10 @@ The first CNN layer consists of 32 kernels of size (3,3) and a Max pooling layer
 
 The second CNN layer consists of 64 kernels of size (3,3) and a Max pooling layer of size (2,2). The output is 64 feature maps with dimensions 16 pixels wide by 8 pixels tall. The feature maps are then passed to a ReLu activation function and a batch normalization layer.
 
+[Batch normalization](https://machinelearningmastery.com/batch-normalization-for-training-of-deep-neural-networks/) is crucial for accelerating the learning process while reducing the internal covariance shift that occurs when the dataset is not fed in its entirety to the network.
+
+Finally a fully connected dense layer is used to flatten the feature maps into a sequence of numbers optimized for detection by the recurrent neural network (RNN). The dense layer is used with 16 nodes at the output. It receives a flattened input vector of dimensions [1, 64*8] and outputs a flattend vector of dimensions [1,16].
+The low number of output nodes in the dense layer is used to avoid overfitting.
 
 ### 2) Birdirectional Long-Short Term Memory Recurrent Neural Networks (Bi-LSTM RNNs):
 
