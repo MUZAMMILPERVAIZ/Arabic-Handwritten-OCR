@@ -56,8 +56,12 @@ The second CNN layer consists of 64 kernels of size (3,3) and a Max pooling laye
 
 Finally a fully connected dense layer is used to flatten the feature maps into a sequence of numbers optimized for detection by the recurrent neural network (RNN). The dense layer is used with 16 nodes at the output. It receives a flattened input vector of dimensions [1, 64*8] and outputs a flattend vector of dimensions [1,16].
 The low number of output nodes in the dense layer is used to avoid overfitting.
+A regularization technique is used by adding a Dropout layer after the fully connected layer.
 
 ### 2) Birdirectional Long-Short Term Memory Recurrent Neural Networks (Bi-LSTM RNNs):
+
+### Introduction:
+Any sequence based data has the property that current data entries depend on the data entries prior to them in time, space or any other measured dimension. In some special cases, the current data entries also depend on the upcoming entries in the sequence. For sequence based detection problems, the normal feed-forward neural network fails to capture the backward and forward dependencies of the data entries, because they focus on the current data entry only. Therefore, feed-forward NNs perform poorly in such problems.
 
 ![image](https://user-images.githubusercontent.com/47701869/173202092-8918b188-87f6-4c49-b321-06aaae3edfcc.png)
 
