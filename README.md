@@ -29,5 +29,21 @@ Given a zipped folder containing all unpreprocessed word images, the output is a
 1) We first take the word image, crop any un-needed black space vertically and horizontally
 2) We then resize the word image (without distortion) to be 64 pixels in width and 32 pixels in height. If distortionless resizing is not possible without padding, we check and add the required padding to the image.
 3) An additional pre-processing step would be to skeletonize the word to get a sharper and thinner outline of the letters. This is required in order to emphasize the morphological similarity of the letters despite the differences in handwriting.
-4) 
+
 ## Step 4: Training the model (DCNNs + Bidirectional LSTMs with CTC Loss)
+### 1) Deep Convolutional Neural Networks (DCNNs):
+#### Introduction:
+In classical computer vision techniques, an image is convolved with a number of high-frequency (e.g. Sobel Filters) and low-frequency (e.g. Gaussian Blur Filter) to extract useful information (features) about the objects in an image such as edges and corners. These filters (kernels) have matrices of well-known properties and values. The convolution output is a new image which is called a "feature map" that highlights edges and corners of a targeted object and discards other irrelevant information. Below is an the feature map of an image after applying the Sobel Edge detector:
+
+![edge_detection_sobel](https://user-images.githubusercontent.com/47701869/173190755-6be335b5-6e25-4a02-915e-972200beaf47.png)
+
+However, in computer vision with Deep learning, we treat the filters as learnable parameters that can be optimized for a given dataset over a number of epochs with gradient descent. With deep learning, we do not know the form of the kernel that best suits our problem statement and gives us the best feature map, it is an unknown that we solve for. 
+Also, with deep learning, we can treat feature maps as new images to find even more detailed features within them. This is where deep learning gets its name, as a hierarchical structure of great depth can be constructed to extract more complicated features about an object in an image with each layer.
+
+![bb6149549a54b5737420749e95b23de0](https://user-images.githubusercontent.com/47701869/173191020-b0c88714-fb87-4eda-9415-ce8be4c1793b.png)
+
+Both approaches are used in the literature of handwritten OCR to extract the features of the words and characters in a dataset. For example, [this](https://www.researchgate.net/publication/325804874_Recognition_of_Handwritten_Arabic_Characters_using_Histograms_of_Oriented_Gradient_HOG) is a paper using HOG (Histogram of Oriented Gradients) which is a classical learning free technique to extract the features of Arabic characters. Another example is [this paper](https://www.inderscienceonline.com/doi/abs/10.1504/IJISTA.2016.080103), which uses CNNs to extract the features of the characters. You can notice that both papers use an SVM (support Vector Machines) classifier for the transcription step, which means that the transcription phase is learnable in both papers but feature extraction can be learning-free.
+
+
+
+2) Birdirectional Long-Short Term Memory Recurrent Neural Networks (Bi-LSTM RNNs):
