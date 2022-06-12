@@ -84,6 +84,13 @@ This gated behavior limits long chains of dependencies on previous data entries 
 
 ![image](https://user-images.githubusercontent.com/47701869/173202092-8918b188-87f6-4c49-b321-06aaae3edfcc.png)
 
+### Architecture Used in this project:
+The output of the fully connected dense layer, delivering the output of the previous CNN layers, is fed to a batch normalization layer and then to a single Bidirectional-LSTM with 256 LSTM Units in both directions (i.e. 128 LSTM unit in either direction). 
+
+To add a regularization effect to the network, a dropout ratio of 0.35 is chosen.
+
+Finally, a fully connected layer is added to perform classification according to the character vocabulary in our labels. Therefore the output nodes of the fully connected layer is equal to the number of chars in the vocabulary+ white space.
+
 ## Step 5: Evaluating the model
 
 A dataset of 5160 images was augmented to obtain a dataset with double the size (10320 images).
