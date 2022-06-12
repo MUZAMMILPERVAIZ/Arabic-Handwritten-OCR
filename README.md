@@ -105,8 +105,17 @@ By evaluating the CER for the model over the testing dataset, we found that CER 
 ### 1) Increasing the Dataset size:
 
 So far, we have used a very small portion of the paragraph images provided by the [KHATT dataset](http://khatt.ideas2serve.net/index.php) and therefore our dataset is limited.
-KHATT dataset provides 1400 paragraph images for training and 300 paragraph image for testing and validation (total 2000 image). However, we used less than 30 images to obtain our dataset because labels for words and subwords were unavailable.
+
+KHATT dataset provides 1400 paragraph images for training and 300 paragraph image for testing and validation (total 2000 images). However, we used less than 30 images to obtain our dataset because labels for words and subwords were unavailable.
+
 We assume that the model will perform better by an increased and diversified dataset, given that it is already showing promising results with a small dataset
 
 ### 2) Tuning the model's hyperparameters which control the architecture
+
+An example of the model's hyperparameters are the number of CNN layers, the number of kernels within eah CNN layer, the number of the nodes in the intermediate dense layer and the dropout ratio, the number of bidirectional RNNs used and the number of LSTM units inside each RNN.
+
+All of these are parameters which control the architecture and complexity of the model. We found that for highly complicated models, overfitting is achieved almost on the onset of training whereas less complicated models take longer times to converge. 
+
+It is worth investigating (systematically) the relationship between these hyperparameters to find the optimum combination of values
+
 
