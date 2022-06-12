@@ -110,12 +110,24 @@ KHATT dataset provides 1400 paragraph images for training and 300 paragraph imag
 
 We assume that the model will perform better by an increased and diversified dataset, given that it is already showing promising results with a small dataset
 
-### 2) Tuning the model's hyperparameters which control the architecture
+### 2) Tuning the model's hyperparameters
 
 An example of the model's hyperparameters are the number of CNN layers, the number of kernels within eah CNN layer, the number of the nodes in the intermediate dense layer and the dropout ratio, the number of bidirectional RNNs used and the number of LSTM units inside each RNN.
 
 All of these are parameters which control the architecture and complexity of the model. We found that for highly complicated models, overfitting is achieved almost on the onset of training whereas less complicated models take longer times to converge. 
 
 It is worth investigating (systematically) the relationship between these hyperparameters to find the optimum combination of values
+
+### 3) Enhancing segmentation technique to obtain words and subwords
+
+The currently used segmentation technique cannot handle a paragraph image where the distance between each 2 consecutive lines is not consistent across the liness themselves. An example of this case is shown below:
+
+![2-Figure1-1 (1)](https://user-images.githubusercontent.com/47701869/173219295-ad223b48-06fd-433f-9088-0e2b43c3f600.png)
+
+Also the algorithm struggles with highly noisy and/or overlapping paragraph images, for example:
+
+![A-sample-handwritten-Arabic-document-image-including-rule-lines](https://user-images.githubusercontent.com/47701869/173219333-de7b5d18-a7de-4da9-957e-fc0f41ffeaee.png)
+
+Therefore, a more general and robust segmentation technique must be investigated for these cases.
 
 
