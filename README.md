@@ -85,3 +85,7 @@ A dataset of 5160 images was augmented to obtain a dataset with double the size 
 The training-testing split was performed so that 80% of the dataset is used for the training and the testing and validation utilizes 20%.
 
 The total number of epochs was set to 100 epochs which is directly dependent on the choice of the optimizer and the learning rate.
+
+ADAM optimizer is used with an exponential decay scheduler for the learning rate starting at a maximum value of 0.001.
+
+![download (3)](https://user-images.githubusercontent.com/47701869/173215655-83e3d5e7-3ee6-4cbe-843b-34858bff32df.jpg)
