@@ -78,3 +78,10 @@ RNNs are particularly prone to exploding/vanishing gradients, due to the fact th
 
 ![image](https://user-images.githubusercontent.com/47701869/173202092-8918b188-87f6-4c49-b321-06aaae3edfcc.png)
 
+## Step 5: Evaluating the model
+
+A dataset of 5160 images was augmented to obtain a dataset with double the size (10320 images).
+
+The training-testing split was performed so that 80% of the dataset is used for the training and the testing and validation utilizes 20%.
+
+The total number of epochs was set to 100 epochs which is directly dependent on the choice of the optimizer and the learning rate.
