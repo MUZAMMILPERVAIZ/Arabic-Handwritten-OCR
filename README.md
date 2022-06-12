@@ -71,6 +71,20 @@ To understand how RNNs are trained, we must look at the simplified diagram of an
 ![unrolled-rnn_0](https://user-images.githubusercontent.com/47701869/173207267-59b04b47-9979-4253-947a-a8a08391fd0c.png)
 
 RNNs are particularly prone to exploding/vanishing gradients, due to the fact that unrolling the network to perform Back Propagation Through Time (BPTT) means that many partial derivatives are multiplied together which increases the probability of vanishing gradients especially with saturating activation functions.
+The problem of vanishing gradients is mitigated by using Long Short Term Memory (LSTM) gated RNN which is shown in the diagram below:
+
+![LSTM](https://user-images.githubusercontent.com/47701869/173226842-8128e0b3-cb8c-44d2-a185-b4f4ccf8272e.png)
+
+In LSTM networks, there is an input gate (denoted by i(t)), a forget gate (denoted by f(t)), and an output gate (denoted by o(t)) as well as a cell state (denoted by c(t)).
+
+At the forget gate, the sigmoid activation function is applied to the current inputs x(t) concatinated with the hidden layer vectors from a previous step in the sequence h(t-1) (multiplied by the weights).
+
+If the result of the activation function is close to zero, the current information is considered unimportant, and information with sigmoid values closer to 1 is considered important.
+
+At the input gate, the sigmoid activation function is also applied to the current inputs x(t) concatinated with the hidden layer vectors from a previous step in the sequence h(t-1) (multiplied by the weights). This input gate is used to update the current cell state c(t) with the help of the tanh activation function.
+
+The current cell state is therefore a function that depends on both i(t) and f(t) and decides whether to take the previous information into consideration or not. Finally, the current cell state is transformed into the range [-1,1] by the tanh function affecting the output of the cell o(t)
+
 
 ![image](https://user-images.githubusercontent.com/47701869/173202092-8918b188-87f6-4c49-b321-06aaae3edfcc.png)
 
