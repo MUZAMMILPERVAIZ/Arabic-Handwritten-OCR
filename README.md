@@ -89,7 +89,9 @@ The output of the fully connected dense layer, delivering the output of the prev
 
 To add a regularization effect to the network, a dropout ratio of 0.35 is chosen.
 
-Finally, a fully connected layer is added to perform classification according to the character vocabulary in our labels. Therefore the output nodes of the fully connected layer is equal to the number of chars in the vocabulary+ white space.
+
+### 3) Connectionist Temporal Classification (CTC) Loss Function:
+
 
 ## Step 5: Evaluating the model
 
