@@ -100,7 +100,7 @@ substitutions: characters which are wrongly predicted by the model (example of a
 
 By evaluating the CER for the model over the testing dataset, we found that CER is is around 22.14% meaning that the model successfully predicted 77.86% of the characters in all ground truth labels of the testing set (including punctuation marks and spaces).
 
-Here is a visualization of the model's prediction versus the image sample for reference:
+Here is a visualization of the model's predictions versus the image samples for reference:
 
 ![download (2)](https://user-images.githubusercontent.com/47701869/173219406-fa2ee110-9c30-42d0-ab2d-ecab67c676ac.jpg)
 
