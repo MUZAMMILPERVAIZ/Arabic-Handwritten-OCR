@@ -95,6 +95,11 @@ At the 100th epoch, the training loss reached 1.1559 whereas the validation loss
 We use the Character Error Rate (CER) metric to evaluate the model over the test dataset.
 
 The Character Error Rate (CER) compares, for a given transcription, the total number of characters (n), including spaces, to the minimum number of insertions (i), substitutions (s) and deletions (d) of characters that are required to obtain the Ground Truth result. The formula to calculate CER is as follows: CER = [ (i + s + d) / n ]*100
+
 Insertions: Extra characters that the model predicts which are not in the ground truth label (example of a label ='cat', example of insertion='caat')
+
 Deletions: Missing characters that the model doesn't predict (correctly or otherwise) which are in the ground truth label (example of a label ='cat', example of deletion='at')
+
 substitutions: characters which are wrongly predicted by the model (example of a label ='cat', example of substitution='bat')
+
+Evaluating the CER for the model over the testing dataset, we found that CER is is around 22.14% meaning that the model successfully predicted 77.86% of the characters in all ground truth labels of the testing set (including punctuation marks and spaces).
