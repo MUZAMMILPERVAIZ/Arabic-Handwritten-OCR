@@ -88,4 +88,6 @@ The total number of epochs was set to 100 epochs which is directly dependent on 
 
 ADAM optimizer is used with an exponential decay scheduler for the learning rate starting at a maximum value of 0.001.
 
+At the 100th epoch, the training loss reached 1.1559 whereas the validation loss was 1.6510 so there was an onset of weak overfitting (weak because the validation loss is only 1.4 times the training loss)
+
 ![download (3)](https://user-images.githubusercontent.com/47701869/173215655-83e3d5e7-3ee6-4cbe-843b-34858bff32df.jpg)
