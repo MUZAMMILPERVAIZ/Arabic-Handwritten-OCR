@@ -66,10 +66,6 @@ Recurrent Neural Networks (RNNs) provide pathways of dependence between the curr
 
 ![rnn-vs-fnn](https://user-images.githubusercontent.com/47701869/173206432-31e8b824-d2e9-4bdd-a567-c03fe2b38e6e.png)
 
-To understand how RNNs are trained, we must look at the simplified diagram of an RNN. This simplified diagram unrolls the dependencies of the RNN so that we can visualize the partial derivatives we need in order to backpropagate the error. This simplified diagram is shown below. It is clear that an RNN can be considered as a series of feed-forward networks that are cascaded together.
-
-![unrolled-rnn_0](https://user-images.githubusercontent.com/47701869/173207267-59b04b47-9979-4253-947a-a8a08391fd0c.png)
-
 RNNs are particularly prone to exploding/vanishing gradients, due to the fact that unrolling the network to perform Back Propagation Through Time (BPTT) means that many partial derivatives are multiplied together which increases the probability of vanishing gradients especially with saturating activation functions.
 The problem of vanishing gradients is mitigated by using Long Short Term Memory (LSTM) gated RNN which is shown in the diagram below:
 
