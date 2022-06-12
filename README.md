@@ -81,9 +81,9 @@ At the forget gate, the sigmoid activation function is applied to the current in
 
 If the result of the activation function is close to zero, the current information is considered unimportant, and information with sigmoid values closer to 1 is considered important.
 
-At the input gate, the sigmoid activation function is also applied to the current inputs x(t) concatinated with the hidden layer vectors from a previous step in the sequence h(t-1) (multiplied by the weights). This input gate is used to update the current cell state c(t) with the help of the tanh activation function.
+Similarly, if we trace the equation for the current cell state we will find that it is a function that depends on both i(t) and f(t) and decides whether to take the previous information into consideration or not. Finally, the current cell state is transformed into the range [-1,1] by the tanh function affecting the output of the cell o(t).
 
-The current cell state is therefore a function that depends on both i(t) and f(t) and decides whether to take the previous information into consideration or not. Finally, the current cell state is transformed into the range [-1,1] by the tanh function affecting the output of the cell o(t)
+This gated behavior limits long chains of dependencies on previous data entries and therefore reduces the vanishing gradients problem.
 
 
 ![image](https://user-images.githubusercontent.com/47701869/173202092-8918b188-87f6-4c49-b321-06aaae3edfcc.png)
