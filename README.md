@@ -98,4 +98,15 @@ Deletions: Missing characters that the model doesn't predict (correctly or other
 
 substitutions: characters which are wrongly predicted by the model (example of a label ='cat', example of substitution='bat')
 
-Evaluating the CER for the model over the testing dataset, we found that CER is is around 22.14% meaning that the model successfully predicted 77.86% of the characters in all ground truth labels of the testing set (including punctuation marks and spaces).
+By evaluating the CER for the model over the testing dataset, we found that CER is is around 22.14% meaning that the model successfully predicted 77.86% of the characters in all ground truth labels of the testing set (including punctuation marks and spaces).
+
+## Future Works Regarding this project:
+
+### 1) Increasing the Dataset size:
+
+So far, we have used a very small portion of the paragraph images provided by the [KHATT dataset](http://khatt.ideas2serve.net/index.php) and therefore our dataset is limited.
+KHATT dataset provides 1400 paragraph images for training and 300 paragraph image for testing and validation (total 2000 image). However, we used less than 30 images to obtain our dataset because labels for words and subwords were unavailable.
+We assume that the model will perform better by an increased and diversified dataset, given that it is already showing promising results with a small dataset
+
+### 2) Tuning the model's hyperparameters which control the architecture
+
