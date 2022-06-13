@@ -102,7 +102,9 @@ Let y be the output of an RNN given to the softmax layer, the softmax outputs ca
 
 $$ y^t_k = p( \pi | x ) = \prod_{t=1}^{T} y^t_{\pi}, \forall \pi \in  L^{'T}  $$
 
-The next step is to define a many characters-to-one character map $ B:  L^{'T} \rightarrow L^{\leq T} $ such that $L^{\leq T}$ are the set of final labels predicted with length equal to or less than the input sequence length T
+The next step is to define a many characters-to-one character map $ B:  L^{'T} \rightarrow L^{\leq T} $ such that $L^{\leq T}$ are the set of final characters predicted with length equal to or less than the input sequence length T.
+
+This is done simply by removing all blanks and repeated characters from the predictions (e.g. if the blank character is denoted by $ \eta$ then $ B(a \eta ab \eta) = B(\eta aa \eta \eta abb) = aab $ ).
 
 ## Step 5: Evaluating the model
 
