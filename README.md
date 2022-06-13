@@ -126,6 +126,11 @@ At every iteration the extensions of the most probable remaining prefix are expl
 Search ends when a single labelling (here ‘XY’) is more probable than any remaining prefix.
 For futher reading, check this [link](https://distill.pub/2017/ctc/) and this [paper](https://dl.acm.org/doi/10.1145/1143844.1143891) out.
 
+### Architecture Used in this project:
+A softmax layer with output nodes equal to the characters in the vocabulary+1 is defined after the Bi-LSTM layer.
+The output of this softmax layer is used as an input to a CTC loss function keras.backend.ctc_batch_cost 
+The CTC cost function is the maximization of $ p(l | x) $ or conversely the minimization of $log(p(l | x))$
+The most likely sequence of character predictions is decoded by using beam search algorithm with a beam width of 100 nodes.
 
 ## Step 5: Evaluating the model
 
