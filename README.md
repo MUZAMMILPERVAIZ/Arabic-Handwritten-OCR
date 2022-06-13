@@ -169,7 +169,7 @@ Here is a visualization of the model's predictions versus the image samples for 
 
 So far, we have used a very small portion of the paragraph images provided by the [KHATT dataset](http://khatt.ideas2serve.net/index.php) and therefore our dataset is limited.
 
-KHATT dataset provides 1400 paragraph images for training and 300 paragraph image for testing and validation (total 2000 images). However, we used less than 30 images to obtain our dataset because labels for words and subwords were unavailable.
+KHATT dataset provides 1400 paragraph images for training and 300 paragraph image for testing and validation (total 2000 images). However, we used less than 100 images to obtain our dataset because labels for words and subwords were unavailable.
 
 We assume that the model will perform better by an increased and diversified dataset, given that it is already showing promising results with a small dataset
 
