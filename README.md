@@ -62,9 +62,7 @@ Any sequence based data has the property that current data entries depend on the
 
 For sequence based detection problems, the normal feed-forward neural network fails to capture the backward and forward dependencies of the data entries, because they focus on the current data entry only. Therefore, feed-forward NNs perform poorly in such problems.
 
-Recurrent Neural Networks (RNNs) provide pathways of dependence between the current data entries and the the entries prior to and after it. The diagram below shows  the main difference between an RNN and a normal feed-forward network: The output of neuron is fed back to it as an input.
-
-![rnn-vs-fnn](https://user-images.githubusercontent.com/47701869/173206432-31e8b824-d2e9-4bdd-a567-c03fe2b38e6e.png)
+Recurrent Neural Networks (RNNs) provide pathways of dependence between the current data entries and the the entries prior to and after it.
 
 RNNs are particularly prone to exploding/vanishing gradients, due to the fact that unrolling the network to perform Back Propagation Through Time (BPTT) means that many partial derivatives are multiplied together which increases the probability of vanishing gradients especially with saturating activation functions.
 The problem of vanishing gradients is mitigated by using Long Short Term Memory (LSTM) gated RNN which is shown in the diagram below:
@@ -92,6 +90,19 @@ To add a regularization effect to the network, a dropout ratio of 0.35 is chosen
 
 ### 3) Connectionist Temporal Classification (CTC) Loss Function:
 
+A neural network with CTC loss has a softmax output layer with one more unit than there are characters in the vocabulary (L).
+
+The activations of the first L units are interpreted as the probabilities of observing the corresponding characters at particular times in th sequence. The activation of the extra unit is the probability of observing a ‘blank’, or no character.
+
+Together, these outputs units define the probabilities of all possible ways of aligning all possible character sequences with the input sequence.
+
+The total probability of any one character sequence can then be found by summing the probabilities of its different alignments.
+
+Let y be the output of an RNN given to the softmax layer, the softmax outputs can be denoted by $ y^t_k $ which is interpreted as the probability of observing character k at time t,  which defines a distribution over the set $L^{'T}$ of length T sequences over the alphabet $ L'= L U blank$ is:
+
+$$ y^t_k = p( \pi | x ) = \prod_{t=1}^{T} y^t_{\pi}, \forall \pi \in  L^{'T}  $$
+
+The next step is to define a many characters-to-one character map $ B:  L^{'T} \rightarrow L^{\leq T} $ such that $L^{\leq T}$ are the set of final labels predicted with length equal to or less than the input sequence length T
 
 ## Step 5: Evaluating the model
 
