@@ -112,6 +112,21 @@ $$ p(l | x) = \sum_{\pi \in B^{-1}(l)} p( \pi | x ) $$
 
 ![CTC](https://user-images.githubusercontent.com/47701869/173327644-bbf5ca8e-0d35-4610-aa5f-17e9e3b8243f.PNG)
 
+Given the above formulation, the output of the classifier should be the most probable labelling for the input sequence:
+$$ h(x)=max(p(l | X))$$
+
+The task of finding this most probable labelling is known as decoding. The most efficient decoding algorithm is the prefix/beam search decoding algorithm shown in the figure below:
+
+![beam_search](https://user-images.githubusercontent.com/47701869/173332378-055e6adb-6d9e-45ba-a6f5-66dbb8f1a862.PNG)
+
+Each node either ends (‘e’) or extends the prefix at its parent node. The number above an extending node is the total probability of all labellings beginning with that
+prefix.
+The number above an end node is the probability of the single labelling ending at its parent.
+At every iteration the extensions of the most probable remaining prefix are explored.
+Search ends when a single labelling (here ‘XY’) is more probable than any remaining prefix.
+For futher reading, check this [link](https://distill.pub/2017/ctc/) and this [paper](https://dl.acm.org/doi/10.1145/1143844.1143891) out.
+
+
 ## Step 5: Evaluating the model
 
 A dataset of 5160 images was augmented to obtain a dataset with double the size (10320 images).
