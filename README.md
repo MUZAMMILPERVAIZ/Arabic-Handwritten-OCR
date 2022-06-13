@@ -108,6 +108,8 @@ This is done simply by removing all blanks and repeated characters from the pred
 
 Finally, the mapping B is used to define the conditional probability of a given character $ l \in L^{\leq T} $ as the sum of all probabilities of the possible labels associated with this character
 
+$$ p(l | x) = \sum_{\pi \in B^{-1}(l)} p( \pi | x ) $$
+
 ![CTC](https://user-images.githubusercontent.com/47701869/173327644-bbf5ca8e-0d35-4610-aa5f-17e9e3b8243f.PNG)
 
 ## Step 5: Evaluating the model
