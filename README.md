@@ -106,6 +106,10 @@ The next step is to define a many characters-to-one character map $ B:  L^{'T} \
 
 This is done simply by removing all blanks and repeated characters from the predictions (e.g. if the blank character is denoted by $ \eta$ then $ B(a \eta ab \eta) = B(\eta aa \eta \eta abb) = aab $ ).
 
+Finally, the mapping B is used to define the conditional probability of a given character $ l \in L^{\leq T} $ as the sum of all probabilities of the possible labels associated with this character
+
+![CTC](https://user-images.githubusercontent.com/47701869/173327644-bbf5ca8e-0d35-4610-aa5f-17e9e3b8243f.PNG)
+
 ## Step 5: Evaluating the model
 
 A dataset of 5160 images was augmented to obtain a dataset with double the size (10320 images).
