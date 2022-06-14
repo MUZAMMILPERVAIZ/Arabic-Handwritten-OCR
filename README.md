@@ -144,7 +144,7 @@ ADAM optimizer is used with an exponential decay scheduler for the learning rate
 
 At the final epoch, the training loss reached 2.17 whereas the validation loss was 1.98.
 
-![download (4)](https://user-images.githubusercontent.com/47701869/173499354-32cfe266-c2e7-4b07-b54f-c67878f8198f.jpg)
+![download (6)](https://user-images.githubusercontent.com/47701869/173499889-3cbe9180-cec0-46f4-b407-2ed431aae9df.jpg)
 
 We use the Character Error Rate (CER) metric to evaluate the model over the test dataset.
 
