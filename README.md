@@ -138,13 +138,13 @@ A dataset of 5160 images was augmented to obtain a dataset with double the size 
 
 The training-testing split was performed so that 80% of the dataset is used for the training and the testing and validation utilizes 20%.
 
-The total number of epochs was set to 300 epochs which is directly dependent on the choice of the optimizer and the learning rate.
+The total number of epochs was set to 450 epochs which is directly dependent on the choice of the optimizer and the learning rate.
 
 ADAM optimizer is used with an exponential decay scheduler for the learning rate starting at a maximum value of 0.0001. A small value of the learning rate is chosen beause larger starting values lead to an earlier onset of overfitting before reaching an acceptable accuracy.
 
-At the final epoch, the training loss reached 2.17 whereas the validation loss was 1.98.
+At the final epoch, the training loss reached 1.5730 whereas the validation loss was 1.1795.
 
-![download (6)](https://user-images.githubusercontent.com/47701869/173499889-3cbe9180-cec0-46f4-b407-2ed431aae9df.jpg)
+![download (7)](https://user-images.githubusercontent.com/47701869/173602635-580006ed-97c7-4d69-ab27-4be28f19e304.jpg)
 
 We use the Character Error Rate (CER) metric to evaluate the model over the test dataset.
 
