@@ -156,7 +156,7 @@ Deletions: Missing characters that the model doesn't predict (correctly or other
 
 substitutions: characters which are wrongly predicted by the model (example of a label ='cat', example of substitution='bat')
 
-By evaluating the CER for the model over the testing dataset, we found that CER is is around 16.16% meaning that the model successfully predicted 83.84% of the characters in all ground truth labels of the testing set (including punctuation marks and spaces).
+By evaluating the CER for the model over the testing dataset, we found that CER is is around 13% meaning that the model successfully predicted 87% of the characters in all ground truth labels of the testing set (including punctuation marks and spaces).
 
 Here is a visualization of the model's predictions versus the image samples for reference:
 
